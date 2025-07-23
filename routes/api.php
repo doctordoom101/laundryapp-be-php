@@ -27,6 +27,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/products', [ProductController::class, 'store']);
         Route::put('/products/{product}', [ProductController::class, 'update']);
         Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+        Route::post('/outlets', [OutletController::class, 'store']);
+        Route::put('/outlets', [OutletController::class, 'update']);
     });
     
     // Admin and Owner routes
@@ -40,6 +42,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::post('/laundry-items', [LaundryItemController::class, 'store']);
         Route::patch('/laundry-items/{laundryItem}/status', [LaundryItemController::class, 'updateStatus']);
         Route::get('/transactions', [TransactionController::class, 'index']);
+        Route::post('/transactions', [TransactionController::class, 'store']);
     });
     
     // Petugas only routes
@@ -49,9 +52,10 @@ Route::middleware('auth:sanctum')->group(function () {
     //     Route::patch('/laundry-items/{laundryItem}/status', [LaundryItemController::class, 'updateStatus']);
     //     Route::post('/transactions', [TransactionController::class, 'store']);
     // });
-    
+
     // All authenticated users
+    // Route::get('/laundry-items/{laundryItem}', [LaundryItemController::class, 'show']);
     Route::get('/products', [ProductController::class, 'index']);
     Route::get('/products/{product}', [ProductController::class, 'show']);
-    Route::get('/laundry-items/{laundryItem}', [LaundryItemController::class, 'show']);
+    
 });

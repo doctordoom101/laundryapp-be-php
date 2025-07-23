@@ -67,6 +67,7 @@ class LaundryItemController extends Controller
             'code' => $laundryItem->code,
             'customer_name' => $laundryItem->customer_name,
             'service' => $laundryItem->product->name,
+            'notes' => $laundryItem->notes,
             'process_status' => $laundryItem->process_status,
             'payment_status' => $laundryItem->payment_status,
             'created_at' => $laundryItem->created_at,
